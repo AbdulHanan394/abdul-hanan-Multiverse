@@ -1,0 +1,434 @@
+.arcade-section {
+	scroll-margin-top: 4rem;
+	background: var(--deep);
+	border-block: 1px solid var(--line);
+}
+.arcade-layout {
+	display: grid;
+	grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+	align-items: center;
+	gap: clamp(2rem, 6vw, 6rem);
+}
+.arcade-copy h2 {
+	font-family: var(--display);
+	line-height: 1.03;
+	margin: 0.45em 0 0.3em;
+	overflow-wrap: break-word;
+}
+.arcade-pitch {
+	font-size: clamp(1.15rem, 2vw, 1.6rem);
+	line-height: 1.4;
+	max-width: 32ch;
+}
+.arcade-rules {
+	color: var(--muted);
+	max-width: 46ch;
+	margin: 1rem 0 1.5rem;
+	line-height: 1.65;
+}
+.arcade-console {
+	background: var(--ink);
+	border: 1px solid var(--brass);
+	min-width: 0;
+	box-shadow: 0 15px 44px #0003;
+}
+.console-top,
+.console-top span,
+.console-top button,
+.game-buttons button,
+.game-readout,
+.steer-pad button,
+.crown-bank button > span:last-child {
+	display: flex;
+	align-items: center;
+	gap: 0.48rem;
+}
+.console-top {
+	justify-content: space-between;
+	padding: 0.4rem 1rem;
+	min-height: 3.4rem;
+	border-bottom: 1px solid var(--line);
+	font-size: 0.9rem;
+	color: var(--gold);
+}
+.console-top button {
+	color: var(--muted);
+	min-height: 44px;
+	padding: 0 0.4rem;
+}
+.game-cover {
+	min-height: 20rem;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: flex-end;
+	padding: clamp(1.4rem, 4vw, 2.8rem);
+	background-size: cover;
+	background-position: center;
+	color: #fff;
+	gap: 1.2rem;
+}
+.game-cover h3 {
+	font-family: var(--display);
+	font-size: clamp(1.8rem, 3vw, 3.4rem);
+	line-height: 1.12;
+	margin: 0.3rem 0;
+	color: #fff;
+}
+.game-cover p {
+	max-width: 38ch;
+	color: #f4f4f4;
+}
+.game-cover div > svg {
+	width: 1.8rem;
+	height: 1.8rem;
+	color: var(--bright);
+}
+.game-live {
+	padding: clamp(0.85rem, 3vw, 2rem);
+	background: radial-gradient(
+		ellipse at top,
+		color-mix(in srgb, var(--surface) 95%, var(--gold)),
+		var(--ink) 82%
+	);
+	min-height: 20rem;
+}
+.game-live button,
+.arcade-console button {
+	cursor: pointer;
+	touch-action: manipulation;
+}
+.game-live button {
+	border: 1px solid var(--brass);
+	background: var(--surface);
+	color: var(--bright);
+	border-radius: 0.3rem;
+}
+.game-live button:enabled:hover,
+.game-live button:focus-visible {
+	background: var(--gold);
+	color: var(--ink);
+}
+.game-live button:disabled {
+	cursor: default;
+}
+.game-readout,
+.game-detail {
+	font-size: 0.95rem;
+	line-height: 1.5;
+	color: var(--muted);
+	margin: 0.2rem 0 1rem;
+}
+.game-buttons,
+.steer-pad {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.55rem;
+	justify-content: center;
+}
+.game-buttons button,
+.steer-pad button {
+	min-height: 46px;
+	min-width: 46px;
+	justify-content: center;
+	padding: 0.5rem 0.9rem;
+}
+.game-buttons button:disabled {
+	opacity: 0.45;
+}
+.sea-grid,
+.sonar-grid {
+	display: grid;
+	grid-template-columns: repeat(5, 1fr);
+	gap: 0.22rem;
+	width: min(100%, 20rem);
+	margin: auto;
+}
+.sea-grid button,
+.sonar-grid button {
+	height: auto;
+	aspect-ratio: 1;
+	display: grid;
+	place-content: center;
+	place-items: center;
+	min-height: 44px;
+}
+.sea-grid button:disabled {
+	border-color: var(--line);
+	color: var(--muted);
+}
+.sea-grid button[data-kind="sea"]:disabled {
+	opacity: 0.38;
+}
+.sea-grid button[data-kind="gold cache"],
+.sea-grid button[data-kind="harbor"] {
+	color: #ffe29c;
+}
+.sea-grid button[data-kind="your ship"] {
+	background: var(--gold);
+	color: var(--ink);
+}
+.moon-stage {
+	height: 12rem;
+	position: relative;
+	overflow: hidden;
+	margin-bottom: 1rem;
+	background:
+		radial-gradient(ellipse at 50% 130%, #767fa2 0 34%, transparent 35%),
+		radial-gradient(circle at 24% 32%, #fff 1px, transparent 2px),
+		radial-gradient(circle at 81% 19%, #fff 1px, transparent 2px), #11162e;
+}
+.moon-orbit {
+	position: absolute;
+	top: 12%;
+	left: 13%;
+	width: 3rem;
+	height: 3rem;
+	color: #8995db;
+}
+.lander {
+	position: absolute;
+	left: 50%;
+	transform: translateX(-50%);
+	color: #e7eaff;
+	transition: bottom 0.3s ease-out;
+}
+.lander svg {
+	transform: rotate(-45deg);
+	width: 2.25rem;
+	height: 2.25rem;
+}
+.landing-pad {
+	position: absolute;
+	bottom: 8%;
+	left: 39%;
+	width: 22%;
+	height: 3px;
+	background: #ced3ff;
+	box-shadow: 0 0 10px #aebbff;
+}
+.telegraph,
+.ridge-stage {
+	min-height: 11rem;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	gap: 0.4rem;
+	text-align: center;
+	border-block: 1px dashed var(--brass);
+	margin-bottom: 1.2rem;
+}
+.telegraph > svg {
+	height: 2.8rem;
+	width: 2.8rem;
+	color: var(--gold);
+}
+.telegraph strong,
+.ridge-stage strong {
+	font: 1.6rem var(--display);
+}
+.telegraph.bell {
+	color: var(--ink);
+	background: #ffd992;
+}
+.telegraph.bell > svg {
+	color: inherit;
+	animation: bell-ring 0.38s ease-in-out 3;
+}
+@keyframes bell-ring {
+	50% {
+		transform: rotate(23deg);
+	}
+}
+.comic-strip,
+.caption-bank {
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	gap: 0.45rem;
+}
+.comic-strip {
+	margin-bottom: 0.8rem;
+}
+.comic-strip button {
+	font-size: 0.92rem;
+	text-align: left;
+	min-height: 3.7rem;
+	padding: 0.5rem;
+	display: flex;
+	gap: 0.45rem;
+	align-items: center;
+}
+.comic-strip b {
+	color: var(--ink);
+	background: var(--gold);
+	padding: 0.1rem 0.35rem;
+	font-family: var(--display);
+}
+.comic-strip button:disabled {
+	opacity: 0.65;
+	border-style: dashed;
+	justify-content: space-between;
+}
+.caption-bank button {
+	font-size: 0.95rem;
+	text-align: left;
+	padding: 0.55rem 0.7rem;
+	line-height: 1.3;
+}
+.caption-bank button:disabled {
+	opacity: 0.38;
+}
+.caption-bank + .game-detail {
+	margin: 0.65rem 0;
+}
+.circuit-grid {
+	display: grid;
+	grid-template-columns: repeat(9, 1fr);
+	width: min(100%, 17rem);
+	margin: 0 auto 1rem;
+	border: 2px solid var(--gold);
+	padding: 2px;
+	background: #061419;
+}
+.circuit-grid span {
+	aspect-ratio: 1;
+	border: 1px solid #123238;
+	display: grid;
+	place-items: center;
+}
+.circuit-grid .runner-head {
+	background: #c5fff1;
+	border-radius: 30%;
+}
+.circuit-grid .runner-trail {
+	background: #358e82;
+	border-radius: 18%;
+}
+.circuit-grid .packet::after {
+	content: "";
+	width: 46%;
+	height: 46%;
+	background: #fb62cc;
+	transform: rotate(45deg);
+	box-shadow: 0 0 8px #ed55b8;
+}
+.steer-pad {
+	gap: 0.3rem;
+}
+.steer-pad button {
+	padding: 0.45rem;
+}
+.sonar-grid {
+	border-radius: 1rem;
+	background: repeating-radial-gradient(
+		circle,
+		transparent 0 21%,
+		#46888155 22%,
+		transparent 23% 28%
+	);
+}
+.sonar-grid button {
+	position: relative;
+	background: transparent;
+	line-height: 1.05;
+	gap: 0.15rem;
+}
+.sonar-grid small {
+	font-size: 0.75rem;
+	color: var(--muted);
+}
+.sonar-grid b {
+	font-size: 1.2rem;
+	color: var(--gold);
+}
+.sonar-grid button:disabled {
+	background: var(--deep);
+}
+.crown-bank {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 0.5rem;
+	padding: 1.5rem 0;
+}
+.crown-bank button {
+	padding: 0.8rem 0.2rem;
+	display: grid;
+	justify-items: center;
+	gap: 0.5rem;
+}
+.clock-face {
+	position: relative;
+	width: min(85%, 5rem);
+	aspect-ratio: 1;
+	border: 3px double currentColor;
+	border-radius: 50%;
+	background: repeating-conic-gradient(
+		from -1deg,
+		currentColor 0 2deg,
+		transparent 2deg 90deg
+	);
+	box-shadow: inset 0 0 0 5px var(--deep);
+}
+.clock-face i {
+	position: absolute;
+	height: 35%;
+	width: 3px;
+	bottom: 50%;
+	left: calc(50% - 1.5px);
+	background: currentColor;
+	transform-origin: bottom;
+	transition: transform 0.25s;
+}
+.crown-bank strong {
+	font-family: var(--display);
+	font-size: 1.35rem;
+}
+.crown-bank button > span:last-child {
+	font-size: 0.85rem;
+}
+.ridge-stage {
+	flex-direction: row;
+	color: var(--gold);
+	gap: 1.2rem;
+	background: linear-gradient(0deg, var(--surface), transparent);
+}
+.ridge-stage div {
+	display: grid;
+	justify-items: start;
+	gap: 0.25rem;
+}
+.game-live progress {
+	display: block;
+	width: 100%;
+	height: 0.55rem;
+	accent-color: var(--gold);
+	margin-bottom: 1rem;
+}
+@media (max-width: 740px) {
+	.arcade-layout {
+		grid-template-columns: 1fr;
+		gap: 1.4rem;
+	}
+	.arcade-copy h2 {
+		font-size: clamp(2.35rem, 9vw, 3.6rem);
+	}
+	.game-cover {
+		min-height: 17rem;
+	}
+	.game-live {
+		min-height: 16rem;
+	}
+	.hero .actions a:last-child {
+		grid-column: 1 / -1;
+	}
+}
+@media (prefers-reduced-motion: reduce) {
+	.telegraph.bell > svg {
+		animation: none;
+	}
+	.lander,
+	.clock-face i {
+		transition: none;
+	}
+}

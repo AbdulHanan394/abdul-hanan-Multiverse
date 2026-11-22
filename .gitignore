@@ -1,0 +1,8 @@
+node_modules/
+.next/
+dist/
+out/
+.sites-runtime/
+.env*
+!.env.example
+*.tsbuildinfo
